@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Order</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #009688;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        /* ... (outras definições de estilo estão aqui) ... */
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #009688;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create Order</h1>
+    <form action="/placeOrder" method="post" th:object="${orderForm}">
+        <label>Client Name: <input type="text" th:field="*{clientName}" /></label><br />
+        <h2>Available Items</h2>
+        <table border="1">
+            <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Select Quantity</th>
+            </tr>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.quantity}"></td>
+                <td><input type="number" min="0" th:field="*{itemQuantities[__${item.id}__]}" /></td>
+            </tr>
+        </table>
+        <br />
+        <input type="submit" value="Confirm Order" />
+    </form>
+</body>
+
+</html>
