@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title>Create Order</title>
+    <title>Fazer Pedido</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -39,15 +39,15 @@
 </head>
 
 <body>
-    <h1>Create Order</h1>
+    <h1>Fazer Pedido</h1>
     <form action="/placeOrder" method="post" th:object="${orderForm}">
-        <label>Client Name: <input type="text" th:field="*{clientName}" /></label><br />
-        <h2>Available Items</h2>
+        <label>Nome do cliente: <input type="text" th:field="*{clientName}" /></label><br />
+        <h2>Itens Disponíveis</h2>
         <table border="1">
             <tr>
-                <th>Description</th>
-                <th>Quantity</th>
-                <th>Select Quantity</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Informe a quantidade</th>
             </tr>
             <tr th:each="item : ${items}">
                 <td th:text="${item.description}"></td>

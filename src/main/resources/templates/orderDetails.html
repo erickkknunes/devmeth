@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title>Order Details</title>
+    <title>Pedido</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -47,13 +47,13 @@
 </head>
 
 <body>
-    <h1>Order Details</h1>
+    <h1>Pedido</h1>
     <h2>Cliente: <span th:text="${clientName}"></span></h2>
     <table border="1">
         <tr>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Value</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
             <th>Subtotal</th>
         </tr>
         <tr th:each="item : ${orderedItems}">
